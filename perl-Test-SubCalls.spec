@@ -1,6 +1,6 @@
 
 %define realname   Test-SubCalls
-%define version    1.08
+%define version    1.09
 %define release    %mkrel 1
 
 Name:       perl-%{realname}
