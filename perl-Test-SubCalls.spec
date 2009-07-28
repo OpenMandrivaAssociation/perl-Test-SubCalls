@@ -1,25 +1,23 @@
+%define upstream_name    Test-SubCalls
+%define upstream_version 1.09
 
-%define realname   Test-SubCalls
-%define version    1.09
-%define release    %mkrel 1
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
 Summary:    Track the number of times subs are called
-Source:     http://www.cpan.org/modules/by-module/Test/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(File::Spec)
 BuildRequires: perl(Hook::LexWrap)
 BuildRequires: perl(Test::Builder::Tester)
 BuildRequires: perl(Test::More)
-
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 There are a number of different situations (like testing caching code)
@@ -31,10 +29,8 @@ This module provides a number of functions for doing testing in this way in
 association with your normal the Test::More manpage (or similar) test
 scripts.
 
-
-
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -55,5 +51,4 @@ rm -rf %buildroot
 %doc README LICENSE Changes
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
 
