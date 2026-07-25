@@ -3,12 +3,12 @@
 
 Summary:	Track the number of times subs are called
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
-Release:	2
+Version:	%{modver}
+Release:	3
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Test/%{modname}-%{modver}.tar.gz
+Url:		https://github.com/karenetheridge/Test-SubCalls
+Source0:	https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-SubCalls-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	make
 BuildRequires:	perl(inc::Module::Install::DSL)
